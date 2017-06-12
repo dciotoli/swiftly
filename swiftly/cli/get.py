@@ -232,7 +232,7 @@ def cli_get_container_listing(context, path=None):
                         if exc_value:
                             conc.join()
                             raise exc_value
-                    new_path = path + '/' + item['name'].encode('utf8')
+                    new_path = path + '/' + item['name']
                     conc.spawn(new_path, cli_get, new_context, new_path)
         else:
             with context.io_manager.with_stdout() as fp:
